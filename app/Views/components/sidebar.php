@@ -3,38 +3,48 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
+        <!-- Home -->
         <li class="nav-item">
-            <a class="nav-link <?php echo (uri_string() == '') ? "" : "collapsed" ?>" href="/">
+            <a class="nav-link <?= (uri_string() == '') ? '' : 'collapsed' ?>" href="/">
                 <i class="bi bi-grid"></i>
                 <span>Home</span>
             </a>
-        </li><!-- End Home Nav -->
+        </li>
 
+        <!-- Keranjang -->
         <li class="nav-item">
-            <a class="nav-link <?php echo (uri_string() == 'keranjang') ? "" : "collapsed" ?>" href="keranjang">
+            <a class="nav-link <?= (uri_string() == 'keranjang') ? '' : 'collapsed' ?>" href="/keranjang">
                 <i class="bi bi-cart-check"></i>
                 <span>Keranjang</span>
             </a>
-        </li><!-- End Keranjang Nav -->
-        <?php
-        if (session()->get('role') == 'admin') {
-        ?>
+        </li>
+
+        <?php if (session()->get('role') === 'admin'): ?>
+            <!-- Produk -->
             <li class="nav-item">
-                <a class="nav-link <?php echo (uri_string() == 'produk') ? "" : "collapsed" ?>" href="produk">
+                <a class="nav-link <?= (uri_string() == 'produk') ? '' : 'collapsed' ?>" href="/produk">
                     <i class="bi bi-receipt"></i>
                     <span>Produk</span>
                 </a>
-            </li><!-- End Produk Nav -->
+            </li>
 
+            <!-- FAQ -->
             <li class="nav-item">
-            <a class="nav-link <?php echo (uri_string() == 'faq') ? "" : "collapsed" ?>" href="faq">
-                <i class="bi bi-cart-check"></i>
-                <span>FAQ</span>
-            </a>
-            </li><!-- End Keranjang Nav -->
-        <?php
-        }
-        ?>
+                <a class="nav-link <?= (uri_string() == 'faq') ? '' : 'collapsed' ?>" href="/faq">
+                    <i class="bi bi-question-circle"></i>
+                    <span>FAQ</span>
+                </a>
+            </li>
+
+            <!-- Diskon (DITAMBAHKAN DI SINI) -->
+            <li class="nav-item">
+                <a class="nav-link <?= (uri_string() == 'diskon') ? '' : 'collapsed' ?>" href="/diskon">
+                    <i class="bi bi-tags"></i>
+                    <span>Diskon</span>
+                </a>
+            </li>
+        <?php endif; ?>
+
     </ul>
 
 </aside><!-- End Sidebar-->

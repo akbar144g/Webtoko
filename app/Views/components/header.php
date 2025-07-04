@@ -1,6 +1,8 @@
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
 
+
+
 <div class="d-flex align-items-center justify-content-between">
   <a href="index.html" class="logo d-flex align-items-center">
     <img src="<?= base_url()?>NiceAdmin/assets/img/logo.png" alt="">
@@ -15,6 +17,13 @@
     <button type="submit" title="Search"><i class="bi bi-search"></i></button>
   </form>
 </div><!-- End Search Bar -->
+
+<?php if (session()->has('diskon')): ?>
+    <div class="alert alert-info mt-3 p-1">
+        Diskon Hari Ini: Rp <?= number_format(session('diskon')) ?>
+    </div>
+<?php endif; ?>
+
 
 <nav class="header-nav ms-auto">
   <ul class="d-flex align-items-center">
